@@ -5,9 +5,9 @@ const funcionario = (app, db) => {
     const contratadoDAO = new FuncionarioDAO(db)
 
     //CREATE FUNCIONARIO
-    app.post('/funcionario', async(req, res) => {
+    app.post('/funcionarios', async(req, res) => {
         try {
-            const contratado = new Funcionario(req.body.nomeCompleto, req.body.email, req.body.telefone, req.body.endereco, req.body.RG, req.body.CPF, req.body.dataDeNascimento, req.body.cargo, req.body.turno, req.body.setor, req.body.remuneracao)
+            const contratado = new Funcionario(req.body.nomeCompleto, req.body.email, req.body.telefone, req.body.endereco, req.body.rg, req.body.cpf, req.body.dataDeNascimento, req.body.cargo, req.body.turno, req.body.setor, req.body.remuneracao)
             const insereFunc = await contratadoDAO.novoFuncionario(contratado)
             res.json(insereFunc)
 
@@ -20,8 +20,8 @@ const funcionario = (app, db) => {
     })
 
     // READ - BUSCAR FUNCIONARIO
-    app.get('./funcionario:id', async(req, res) => {
-        const id = parseInt(req.params.id);
+    app.get('/funcionarios/:id', async(req, res) => {
+        const id = req.params.id
         try {
             const funcID = await contratadoDAO.buscaFuncionario(id)
             res.json(funcID)
@@ -34,9 +34,11 @@ const funcionario = (app, db) => {
     })
 
     // READ - LISTAR TODOS OS EMPREGADOS 
-    app.get('./funcionarios', (req, res) => {
+    app.get('/funcionarios', async(req, res) => {
         try {
-            FuncionarioDAO.buscaFuncionarioAll(res)
+            const funcDAO = await contratadoDAO.buscaFuncionarioAll()
+            res.json(funcDAO)
+
         } catch (error) {
             res.status(400).json({
                 "message": error.message,
@@ -46,7 +48,7 @@ const funcionario = (app, db) => {
     })
 
     // UPDATE - ATUALIZA FUNCIONARIO
-    app.patch('./funcionario:id', (req, res) => {
+    app.patch('/funcionarios:id', (req, res) => {
         const id = parseInt(req.params.id)
         const valores = req.body
         try {
@@ -60,7 +62,7 @@ const funcionario = (app, db) => {
     })
 
     // DELETE - FUNCIONARIO DEMITIDO
-    app.delete('/funcionario:id'), async(req, res) => {
+    app.delete('/funcionarios:id'), async(req, res) => {
         const id = parseInt(req.params.id)
         try {
             const demitido = await contratadoDAO.demiteFuncionario(id)

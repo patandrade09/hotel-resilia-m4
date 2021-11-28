@@ -4,7 +4,7 @@ class funcionariosDAO {
     }
 
     // CREATE
-    async novoFuncionario(novoFuncionario) {
+    novoFuncionario(novoFuncionario) {
         try {
             const INSERT_FUNCIONARIOS = `
         INSERT INTO FUNCIONARIOS
@@ -21,7 +21,7 @@ class funcionariosDAO {
                         })
                     } else {
                         resolve({
-                            "req": novoFuncionario,
+                            "funcionarios": novoFuncionario,
                             "error": false
                         })
                     }
@@ -34,7 +34,7 @@ class funcionariosDAO {
     }
 
     // READ
-    async buscaFuncionarioAll() {
+    buscaFuncionarioAll() {
         try {
             const SELECT_ALL_FUNCIONARIOS = `
         SELECT * FROM FUNCIONARIOS
@@ -48,7 +48,7 @@ class funcionariosDAO {
                         })
                     } else {
                         resolve({
-                            "req": rows,
+                            "funcionarios": rows,
                             "error": false
                         })
                     }
@@ -61,14 +61,14 @@ class funcionariosDAO {
     }
 
     // READ ID
-    async buscaFuncionario(id) {
+    buscaFuncionario(id) {
         try {
             const SELECT_FUNC_BY_ID =
                 `SELECT * FROM FUNCIONARIOS
             WHERE ID = ?`
 
             return new Promise((resolve, reject) => {
-                this.db.all(SELECT_FUNC_BY_ID, id, (error, rows) => {
+                this.db.get(SELECT_FUNC_BY_ID, id, (error, rows) => {
                     if (error) {
                         reject({
                             "msg": error.message,
@@ -76,7 +76,7 @@ class funcionariosDAO {
                         })
                     } else {
                         resolve({
-                            "req": rows,
+                            "funcionarios": rows,
                             "error": false
                         })
                     }
@@ -88,7 +88,7 @@ class funcionariosDAO {
     }
 
     // UPDATE
-    async atualizaFuncionario(id, atualizaFuncionario) {
+    atualizaFuncionario(id, atualizaFuncionario) {
         try {
             const UPDATE_FUNC = `
             UPDATE FUNCIONARIOS
@@ -122,7 +122,7 @@ class funcionariosDAO {
     }
 
     // DELETE
-    async demiteFuncionario(id) {
+    demiteFuncionario(id) {
         try {
             const DELETE_FUNC = `
             DELETE FROM FUNCIONARIOS
@@ -137,7 +137,7 @@ class funcionariosDAO {
                         })
                     } else {
                         resolve({
-                            "req": `Funcionario ${id} desligado com sucesso.`,
+                            "funcionarios": `Funcionario ${id} desligado com sucesso.`,
                             "error": false
                         })
                     }
