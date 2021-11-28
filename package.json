@@ -1,25 +1,29 @@
 {
-  "name": "hotel-resilia-m4",
-  "version": "1.0.0",
-  "description": "",
-  "main": "src/app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patandrade09/hotel-resilia-m4.git"
-  },
-  "author": "patricia andrade",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/patandrade09/hotel-resilia-m4/issues"
-  },
-  "homepage": "https://github.com/patandrade09/hotel-resilia-m4#readme",
-  "dependencies": {
-    "express": "^4.17.1",
-    "moment": "^2.29.1",
-    "sqlite": "^4.0.23",
-    "sqlite3": "^5.0.2"
-  }
+    "name": "hotel-resilia-m4",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/app.js",
+    "scripts": {
+        "dev": "nodemon ./src/app.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/patandrade09/hotel-resilia-m4.git"
+    },
+    "author": "patricia andrade",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/patandrade09/hotel-resilia-m4/issues"
+    },
+    "homepage": "https://github.com/patandrade09/hotel-resilia-m4#readme",
+    "dependencies": {
+        "express": "^4.17.1",
+        "moment": "^2.29.1",
+        "sqlite": "^4.0.23",
+        "sqlite3": "^5.0.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    }
 }
