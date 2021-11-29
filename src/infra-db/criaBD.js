@@ -11,7 +11,7 @@ const FUNCIONARIOS_SCHEMA =
     "Nome_Completo" varchar,
     "Email" varchar,
     "Telefone" varchar,
-    "Endereço" varchar,
+    "Endereco" varchar,
     "RG" varchar,
     "CPF" varchar,
     "Data_de_Nascimento" varchar,
@@ -22,7 +22,7 @@ const FUNCIONARIOS_SCHEMA =
   );`
 
 const ADD_FUNCIONARIOS_DATA = `
-INSERT INTO FUNCIONARIOS (Nome_Completo, Email, Telefone, Endereço, RG, CPF, Data_de_Nascimento, Cargo, Turno, Setor, Remuneracao)
+INSERT INTO FUNCIONARIOS (Nome_Completo, Email, Telefone, Endereco, RG, CPF, Data_de_Nascimento, Cargo, Turno, Setor, Remuneracao)
 VALUES 
     ('Bruno', 'bruno@gmail.com.br', '21887799888', 'Rua da Mata', '12345678900','12345678970', '12/12/12', 'Analista', 'Integral', 'Contabilidade', '4500'),
     ('Bruno', 'bruno@gmail.com.br', '21887799888', 'Rua da Mata', '12345678900','12345678970', '12/12/12', 'Analista', 'Integral', 'Contabilidade', '4500'),

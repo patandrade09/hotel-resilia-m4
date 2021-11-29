@@ -8,13 +8,14 @@ class funcionariosDAO {
         try {
             const INSERT_FUNCIONARIOS = `
         INSERT INTO FUNCIONARIOS
-            (Nome_Completo, Email, Telefone, Endereço, RG, CPF, Data_de_Nascimento, Cargo, Turno, Setor, Remuneracao)
+            (Nome_Completo, Email, Telefone, Endereco, RG, CPF, Data_de_Nascimento, Cargo, Turno, Setor, Remuneracao)
         VALUES
             (?,?,?,?,?,?,?,?,?,?,?)
         `
             return new Promise((resolve, reject) => {
                 this.db.run(INSERT_FUNCIONARIOS, [...Object.values(novoFuncionario)], (error) => {
                     if (error) {
+                        console.log(error)
                         reject({
                             "msg": error.message,
                             "error": true
@@ -42,6 +43,7 @@ class funcionariosDAO {
             return new Promise((resolve, reject) => {
                 this.db.all(SELECT_ALL_FUNCIONARIOS, (error, rows) => {
                     if (error) {
+                        console.log(error)
                         reject({
                             "msg": error.message,
                             "error": true
@@ -70,9 +72,9 @@ class funcionariosDAO {
             return new Promise((resolve, reject) => {
                 this.db.get(SELECT_FUNC_BY_ID, id, (error, rows) => {
                     if (error) {
+                        console.log(error)
                         reject({
-                            "msg": error.message,
-                            "error": true
+                            "msg": error
                         })
                     } else {
                         resolve({
@@ -90,27 +92,30 @@ class funcionariosDAO {
     // UPDATE
     atualizaFuncionario(id, atualizaFuncionario) {
         try {
-            const UPDATE_FUNC = `
-            UPDATE FUNCIONARIOS
-            SET Nome_Completo = ?, Email = ?, Telefone = ?, Endereço = ?, RG = ?, CPF = ?,
-            Data_de_Nascimento = ?, Cargo = ?, Turno = ?, Setor = ?, Remuneracao = ?
-            WHERE ID = ?`
+            const UPDATE_FUNC =
+                `
+                UPDATE FUNCIONARIOS
+                SET Nome_Completo = COALESCE(?, Nome_Completo) , Email = COALESCE(?, Email), Telefone = COALESCE(?, Telefone), Endereco = COALESCE(?, Endereco), RG = COALESCE(?, rg), CPF = COALESCE(?, cpf),
+                Data_de_Nascimento = COALESCE(?, Data_de_Nascimento), Cargo = COALESCE(?, cargo), Turno = COALESCE(?, turno), Setor = ?, Remuneracao = COALESCE(?, remuneracao)
+                WHERE ID = ?    
+            `
 
             return new Promise((resolve, reject) => {
-                this.db.run(UPDATE_FUNC, [atualizaFuncionario.Nome_Completo, atualizaFuncionario.Email,
-                        atualizaFuncionario.Telefone, atualizaFuncionario.Endereço, atualizaFuncionario.RG,
-                        atualizaFuncionario.CPF, atualizaFuncionario.Data_de_Nascimento, atualizaFuncionario.Cargo,
-                        atualizaFuncionario.Turno, atualizaFuncionario.Setor, atualizaFuncionario.Remuneracao, id
+
+                this.db.run(UPDATE_FUNC, [atualizaFuncionario.nomeCompleto, atualizaFuncionario.email,
+                        atualizaFuncionario.telefone, atualizaFuncionario.endereco, atualizaFuncionario.rg,
+                        atualizaFuncionario.cpf, atualizaFuncionario.dataDeNascimento, atualizaFuncionario.cargo,
+                        atualizaFuncionario.turno, atualizaFuncionario.setor, atualizaFuncionario.remuneracao, id
                     ],
                     (error) => {
                         if (error) {
+                            console.log(error)
                             reject({
-                                "msg": error.message,
-                                "error": true
+                                "msg": error
                             })
                         } else {
                             resolve({
-                                "msg": `Dados de Funcionario ${id} ${Nome_Completo} foram atualizados.`,
+                                "msg": `Dados atualizados.`,
                                 "erro": false
                             })
                         }
@@ -125,10 +130,11 @@ class funcionariosDAO {
     demiteFuncionario(id) {
         try {
             const DELETE_FUNC = `
-            DELETE FROM FUNCIONARIOS
+            DELETE FROM FUNCIONARIOS 
             WHERE ID = ?`
 
             return new Promise((resolve, reject) => {
+                console.log("apiapi")
                 this.db.run(DELETE_FUNC, id, (error) => {
                     if (error) {
                         reject({
@@ -137,7 +143,7 @@ class funcionariosDAO {
                         })
                     } else {
                         resolve({
-                            "funcionarios": `Funcionario ${id} desligado com sucesso.`,
+                            "funcionarios": `Funcionario desligado com sucesso.`,
                             "error": false
                         })
                     }

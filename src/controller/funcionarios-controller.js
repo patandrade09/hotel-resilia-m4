@@ -41,18 +41,18 @@ const funcionario = (app, db) => {
 
         } catch (error) {
             res.status(400).json({
-                "message": error.message,
-                "error": true
+                "error": error.message
             })
         }
     })
 
     // UPDATE - ATUALIZA FUNCIONARIO
-    app.patch('/funcionarios:id', (req, res) => {
-        const id = parseInt(req.params.id)
+    app.patch('/funcionarios/:id', async(req, res) => {
+        const id = req.params.id
         const valores = req.body
         try {
-            FuncionarioDAO.atualizaFuncionario(id, valores, res)
+            const upFunc = await contratadoDAO.atualizaFuncionario(id, valores)
+            res.json(upFunc)
         } catch (error) {
             res.status(400).json({
                 "message": error.message,
@@ -62,8 +62,8 @@ const funcionario = (app, db) => {
     })
 
     // DELETE - FUNCIONARIO DEMITIDO
-    app.delete('/funcionarios:id'), async(req, res) => {
-        const id = parseInt(req.params.id)
+    app.delete('/funcionarios/:id', async(req, res) => {
+        const id = req.params.id
         try {
             const demitido = await contratadoDAO.demiteFuncionario(id)
             res.json(demitido)
@@ -73,7 +73,7 @@ const funcionario = (app, db) => {
                 "error": true
             })
         }
-    }
+    })
 }
 
 module.exports = funcionario
