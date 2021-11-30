@@ -42,6 +42,7 @@ Esta  `API REST`  foi desenvolvida como exemplo para um  `Hotel`, onde realizamo
 Para uma melhor experiência na utilização desta API, recomenda-se o uso de ferramentas como [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/download) para testarmos as rotas abaixo. 
  
   **POST  - Inserindo um novo funcionário no banco de dados SQLite:**
+  
   Insira os dados em formato JSON na rota abaixo: 
   
   `POST`   `http://localhost:3002/funcionarios`
