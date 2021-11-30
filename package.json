@@ -19,6 +19,7 @@
     "homepage": "https://github.com/patandrade09/hotel-resilia-m4#readme",
     "dependencies": {
         "cors": "^2.8.5",
+        "dotenv": "^10.0.0",
         "express": "^4.17.1",
         "moment": "^2.29.1",
         "sqlite": "^4.0.23",
