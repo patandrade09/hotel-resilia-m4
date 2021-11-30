@@ -120,7 +120,12 @@ DELETE -  http://localhost:3002/funcionarios/:id
     }
   ##
  **Heroku** 
+ 
   Este banco foi hospedado na plataforma [Heroku](https://id.heroku.com/login) 
+  
   [Banco Hotel California](https://api-hotel-m4.herokuapp.com/funcionarios)
+  
   ##
+  **Desenvolvedora**
+  
 API desenvolvida por [Patrícia Andrade](https://www.linkedin.com/in/patr%C3%ADcia-andrade-09/) para o módulo 4 do curso de desenvolvimento web [Resilia Educação](https://www.resilia.com.br/). 🦉
