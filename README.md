@@ -43,6 +43,8 @@ Para uma melhor experiência na utilização desta API, recomenda-se o uso de fe
  
   **POST  - Inserindo um novo funcionário no banco de dados SQLite:**
   
+  POST - http://localhost:3002/funcionarios
+  
   Insira os dados em formato JSON na rota abaixo: 
   
   `POST`   `http://localhost:3002/funcionarios`
