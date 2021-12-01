@@ -31,7 +31,7 @@ Esta  `API REST` com Node.js foi desenvolvida como exemplo para um  `Hotel`, ond
 
       cd hotel-resilia-m4
       
-- Instale o [Express](https://www.npmjs.com/package/express) da biblioteca npm inserindo o comando abaixo:: 
+- Instale o [Express](https://www.npmjs.com/package/express) da biblioteca npm inserindo o comando abaixo: 
 
       npm install express
       
