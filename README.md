@@ -17,7 +17,8 @@ Esta  `API REST` com Node.js foi desenvolvida como exemplo para um  `Hotel`, ond
  - Nodemon
  - Jest
  - Supertest
- - 
+ 
+ 
  ##
  **Inicializando o projeto:**
 
