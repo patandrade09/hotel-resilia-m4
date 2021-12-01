@@ -4,7 +4,7 @@
 ## **API REST - Hotel California**   
 💛🦉
 
-Esta  `API REST`  foi desenvolvida como exemplo para um  `Hotel`, onde realizamos operações CRUD para a entidade   `Funcionários`.
+Esta  `API REST` com Node.js foi desenvolvida como exemplo para um  `Hotel`, onde realizamos operações CRUD para a entidade `Funcionários`.
 
 **Ferramentas :** 
  -   VScode
@@ -17,18 +17,25 @@ Esta  `API REST`  foi desenvolvida como exemplo para um  `Hotel`, onde realizamo
  - Nodemon
  - Jest
  - Supertest
+ - 
  ##
  **Inicializando o projeto:**
 
- - Passo 1: Clone este repositório no seu computador: 
+ - Clone este repositório no seu computador: 
 
      git clone https://github.com/patandrade09/hotel-resilia-m4
+
+- Instale o [Node JS](https://nodejs.org/en/) na sua máquina. Recomenda-se a versão LTS. 
 
 - Acesse a pasta criada através do cmd:
 
       cd hotel-resilia-m4
       
-- Realize os testes automatizados elaborados com o Supertest: 
+- Instale o [Express](https://www.npmjs.com/package/express) da biblioteca npm inserindo o comando abaixo:: 
+
+      npm install express
+      
+- Realize os testes automatizados elaborados com o [Supertest](https://www.npmjs.com/package/supertest): 
 	 
       npm run test
 	    
@@ -39,13 +46,9 @@ Esta  `API REST`  foi desenvolvida como exemplo para um  `Hotel`, onde realizamo
 
 ##
  **Utilizando as Rotas:**
- 
 Para uma melhor experiência na utilização desta API, recomenda-se o uso de ferramentas como [Postman](https://www.postman.com/) ou [Insomnia](https://insomnia.rest/download) para testarmos as rotas abaixo. 
  
   **POST  - Inserindo um novo funcionário no banco de dados SQLite:**
-  
-  POST - http://localhost:3002/funcionarios
-  
   Insira os dados em formato JSON na rota abaixo: 
   
   `POST`   `http://localhost:3002/funcionarios`
@@ -120,12 +123,19 @@ DELETE -  http://localhost:3002/funcionarios/:id
     }
   ##
  **Heroku** 
- 
   Este banco foi hospedado na plataforma [Heroku](https://id.heroku.com/login) 
-  
   [Banco Hotel California](https://api-hotel-m4.herokuapp.com/funcionarios)
-  
   ##
-  **Desenvolvedora**
-  
 API desenvolvida por [Patrícia Andrade](https://www.linkedin.com/in/patr%C3%ADcia-andrade-09/) para o módulo 4 do curso de desenvolvimento web [Resilia Educação](https://www.resilia.com.br/). 🦉
+
+  
+
+  
+ 
+
+
+
+
+
+
+
