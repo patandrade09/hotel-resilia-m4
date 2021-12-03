@@ -96,7 +96,7 @@ class funcionariosDAO {
                 `
                 UPDATE FUNCIONARIOS
                 SET Nome_Completo = COALESCE(?, Nome_Completo) , Email = COALESCE(?, Email), Telefone = COALESCE(?, Telefone), Endereco = COALESCE(?, Endereco), RG = COALESCE(?, rg), CPF = COALESCE(?, cpf),
-                Data_de_Nascimento = COALESCE(?, Data_de_Nascimento), Cargo = COALESCE(?, cargo), Turno = COALESCE(?, turno), Setor = ?, Remuneracao = COALESCE(?, remuneracao)
+                Data_de_Nascimento = COALESCE(?, Data_de_Nascimento), Cargo = COALESCE(?, cargo), Turno = COALESCE(?, turno), Setor = COALESCE(?, setor), Remuneracao = COALESCE(?, remuneracao)
                 WHERE ID = ?    
             `
 
